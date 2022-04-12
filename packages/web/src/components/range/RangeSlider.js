@@ -302,7 +302,10 @@ class RangeSlider extends Component {
 				histogram: {
 					field: props.dataField,
 					interval: this.getValidInterval(props),
-					offset: getNumericRangeArray(props.range, props.queryFormat),
+					extended_bounds: {
+						min: getNumericRangeArray(props.range, props.queryFormat)[0],
+						max: getNumericRangeArray(props.range, props.queryFormat)[1],
+					},
 				},
 			},
 		};
